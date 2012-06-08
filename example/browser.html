@@ -183,7 +183,7 @@ JavaScript:
 ```
 http.createServer(function (req, res) {
   if (req.url.length > 10) {
-    return res.end('10!!!');
+    return res.end('<b>Warning...</b>');
   }
   res.end('Hello World');
 });

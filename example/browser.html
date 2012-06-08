@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html style="height: 100%">
+<head>
+  <meta charset="utf-8">
+  <title>Markdown Preview</title>
+  <link rel="stylesheet" href="http://fengmk2.github.com/css/prettify.css">  
+  <!-- <link rel="stylesheet" type="text/css" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css"> -->
+  <script src="http://fengmk2.github.com/js/jquery-1.7.min.js"></script>
+  <script src="http://fengmk2.github.com/js/prettify.js"></script>
+  <script src="../lib/showdown.js"></script>
+</head>
+
+<body style="height: 100%">
+
+<div style="width: 45%; height: 80%; float: left; margin-right: 20px;">
+<textarea id="md" style="width: 100%; height: 100%;">
+Using this tool
+---------------
+
+This page lets you create HTML by entering text in a simple format that's easy to read and write.
+
+  - Type Markdown text in the left window
+  - See the HTML in the right
+
+Markdown is a lightweight markup language based on the formatting conventions that people naturally use in email.  As [John Gruber] writes on the [Markdown site] [1]:
+
+> The overriding design goal for Markdown's
+> formatting syntax is to make it as readable 
+> as possible. The idea is that a
+> Markdown-formatted document should be
+> publishable as-is, as plain text, without
+> looking like it's been marked up with tags
+> or formatting instructions.
+
+This document is written in Markdown; you can see the plain-text version on the left.  To get a feel for Markdown's syntax, type some text into the left window and watch the results in the right.  You can see a Markdown syntax guide by switching the right-hand window from *Preview* to *Syntax Guide*.
+
+Showdown is a Javascript port of Markdown.  You can get the full [source code] by clicking on the version number at the bottom of the page.
+
+**Start with a [blank page] or edit this document in the left window.**
+
+  [john gruber]: http://daringfireball.net/
+  [1]: http://daringfireball.net/projects/markdown/
+  [source code]: http://www.attacklab.net/showdown-v0.9.zip
+  [blank page]: ?blank=1 "Clear all text"
+
+<hr/>
+
+## Syntax highlighting
+
+When combined with [google-code-prettify] this starts looking as a kind of IDE :-)
+
+JavaScript:
+
+```
+http.createServer(function (req, res) {
+  if (req.url.length > 10) {
+    return res.end('10!!!');
+  }
+  res.end('Hello World');
+});
+```
+
+HTML2:
+
+```html
+<h1>HTML code</h1>
+<p class="some">This is an example</p>
+```
+
+Python:
+
+```py
+def func():
+  for i in [1, 2, 3]:
+    print "%s" % i
+```
+
+Python2:
+
+    def func():
+      for i in [1, 2, 3]:
+        print "%s" % i
+
+[google-code-prettify]: http://code.google.com/p/google-code-prettify/
+
+</textarea>
+
+<p><button id="parseBtn">Convert to HTML</button></p>
+
+</div>
+
+<div id="preview" style="float: right; width: 50%; margin-right: 10px;">预览</div>
+
+<!-- Specific to this page -->
+<script>
+$(function() {
+  $('#parseBtn').click(function () {
+    $('#preview').html(Showdown.parse($('#md').val()));
+    prettyPrint();
+  }).click();
+});
+</script>
+
+</body>
+</html>

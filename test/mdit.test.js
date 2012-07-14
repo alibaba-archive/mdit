@@ -11,15 +11,16 @@
 var path = require('path');
 var fs = require('fs');
 var mdit = require('../lib/mdit');
+var should = require('should');
+fs.existsSync = fs.existsSync || path.existsSync;
 
-
-describe('mdit.test.js', function() {
-  describe('#toSlides', function() {
+describe('mdit.test.js', function () {
+  it('toSlides()', function () {
     var dirname = path.dirname(__dirname);
     var filepath = path.join(dirname, 'example', 'slides_demo.md');
     var savepath = mdit.toSlides(filepath);
     savepath.should.include('slides_demo.html');
-    path.existsSync(savepath).should.be.true;
-    fs.unlinkSync(savepath);
+    should.ok(fs.existsSync(savepath));
+    // fs.unlinkSync(savepath);
   });
 });

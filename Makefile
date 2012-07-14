@@ -1,4 +1,3 @@
-SRC = $(shell find lib -type f -name "*.js")
 TESTS = test/*.js
 TESTTIMEOUT = 5000
 REPORTER = spec

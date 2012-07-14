@@ -10,6 +10,7 @@
     "url": "https://github.com/fengmk2/mdit.git"
   },
   "dependencies": {
+    "marked": ">=0.2.5"
   },
   "devDependencies": {
     "should": ">=0.4.2",

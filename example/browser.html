@@ -3,11 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Markdown Preview</title>
-  <link rel="stylesheet" href="http://fengmk2.github.com/css/prettify.css">  
-  <!-- <link rel="stylesheet" type="text/css" href="http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css"> -->
-  <script src="http://fengmk2.github.com/js/jquery-1.7.min.js"></script>
-  <script src="http://fengmk2.github.com/js/prettify.js"></script>
-  <script src="../lib/showdown.js"></script>
+  <script src="../lib/marked.js"></script>
 </head>
 
 <body style="height: 100%">
@@ -188,13 +184,21 @@ When combined with [google-code-prettify] this starts looking as a kind of IDE :
 
 JavaScript:
 
-```
+```js
 http.createServer(function (req, res) {
   if (req.url.length > 10) {
     return res.end('<b>Warning...</b>');
   }
   res.end('Hello World');
 });
+```
+
+Bash:
+
+```bash
+$ make test
+$ ls -l
+$ echo "hello world"
 ```
 
 HTML:
@@ -234,10 +238,19 @@ Python2:
 <div id="preview" style="float: right; width: 50%; margin-right: 10px;">预览</div>
 
 <!-- Specific to this page -->
+<link rel="stylesheet" href="http://fengmk2.github.com/css/prettify.css" />
+<script src="http://fengmk2.github.com/js/jquery-1.7.min.js"></script>
+<script src="http://fengmk2.github.com/js/prettify.js"></script>
 <script>
+marked.setOptions({
+  gfm: true,
+  pedantic: false,
+  sanitize: false
+});
 $(function() {
   $('#parseBtn').click(function () {
-    $('#preview').html(Showdown.parse($('#md').val()));
+    $('#preview').html(marked($('#md').val()));
+    $('pre code').parent().addClass('prettyprint');
     prettyPrint();
   }).click();
 });

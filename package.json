@@ -10,7 +10,7 @@
     "url": "https://github.com/fengmk2/mdit.git"
   },
   "dependencies": {
-    "marked": ">=0.2.5"
+    "marked": ">=0.2.9"
   },
   "devDependencies": {
     "should": ">=0.4.2",
@@ -18,6 +18,6 @@
   },
   "license": "MIT",
   "engines": { 
-    "node": ">= 0.6.0 < 0.7.0" 
+    "node": ">= 0.8.0" 
   }
 }

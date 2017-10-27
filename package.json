@@ -2,7 +2,10 @@
   "name": "mdit",
   "version": "0.0.2",
   "description": "Markdown it, yes, everything!",
-  "keywords": ["markdown", "list files"],
+  "keywords": [
+    "markdown",
+    "list files"
+  ],
   "author": "fengmk2 <fengmk2@gmail.com> (http://github.com/fengmk2)",
   "main": "./lib/mdit.js",
   "repository": {
@@ -10,14 +13,20 @@
     "url": "https://github.com/fengmk2/mdit.git"
   },
   "dependencies": {
-    "marked": ">=0.2.9"
+    "marked": ">=0.2.9",
+    "snyk": "^1.46.0"
   },
   "devDependencies": {
     "should": ">=0.4.2",
     "mocha": ">=0.7.1"
   },
   "license": "MIT",
-  "engines": { 
-    "node": ">= 0.8.0" 
-  }
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
